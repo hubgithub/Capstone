@@ -1,40 +1,70 @@
-
+import java.awt.Point;
 
 /**
- * Write a description of class Chess_pieces here.
+ * Super Class of all Chess pieces
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Heng Li) 
+ * @version (4-20-2016)
  */
-public class Chess_pieces
+public abstract class Chess_pieces
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    
+    String side;
+    Point location;
+    int border;
+
 
     /**
      * Default constructor for objects of class Chess_pieces
      */
-    public Chess_pieces()
+    public Chess_pieces(String side, Point location)
     {
-        // initialise instance variables
-        x = 0;
+        this.side = side;
+        this.location = location;
+        if(side.equals("red"))
+        {
+            border = 40;
+        }
+        else
+        {
+            border = 60;
+        }
+        
+
+    }
+    
+    /**
+     * abract class valid move
+     * return true if move is valid, false otherwise
+     * 
+     */
+    public abstract boolean valid_move(Point next_loc);
+    
+    /**
+     * set the location to the move
+     */
+    public void move(Point next_loc)
+    {
+        this.location = next_loc;
+    }
+    
+    public String getSide()
+    {
+        return this.side;
+    }
+    
+    public Point getLocation()
+    {
+        return this.location;
+    }
+    
+    /**
+     * draw it self
+     */
+    public void draw()
+    {
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x+y;
-    }
+
 
 }

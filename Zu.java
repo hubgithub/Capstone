@@ -3,58 +3,65 @@ import java.awt.Point;
 /**
  * Write a description of class Zu here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Heng Li) 
+ * @version (4-20-2016)
  */
-public class Zu
+public class Zu extends Chess_pieces
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int step;
-    private String side;
+    
 
     /**
      * Default constructor for objects of class Zu
      */
-    public Zu(String side)
+    public Zu(String side,Point location)
     {
-        // initialise instance variables
-        step = 1;
-        this.side = side;
+        super(side,location);
+
     }
 
 
-    public boolean validMove(int x, int y, int x1, int y1)
+    public boolean valid_move(Point next_loc)
     {
-        if(x == x1 && y == y1)
+        if(Math.abs(next_loc.getX()- this.location.getX())+Math.abs(next_loc.getY()-this.location.getY()) != 1)
         {
-            return false;
-        }
-        else if(x != x1 && y != y1)
-        {
-            return false;
+            if(side.equals("red"))
+            {
+                if((this.location.getY() - next_loc.getY()) < 0)
+                {
+                    return false;
+                }
+                else if((this.location.getY() > border) && (this.location.getX() != next_loc.getX()))
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                if((this.location.getY() - next_loc.getY()) > 0)
+                {
+                    return false;
+                    
+                }
+                else if((this.location.getY() < border) && (this.location.getX() != next_loc.getX()))
+                {
+                    return false;
+                }
+                
+            }
+            
         }
         
-        if((x > HB_JIE && x != x1 && side == "red")|| (x < BH_JIE && x != x1 && side == "black"))
-        {
-            return false;
-        }
+        return true;
         
-        if((y1 - y < 0 && side.equals("red")) || (y1 - y > 0 && side.equals("black")) )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
         
     }
     
     
-    public int move(int x, int y,int x1, int y1)
-    {
-        
-
-    }
+//     public void move(Point next_loc)
+//     {
+//         this.location = next_loc;
+// 
+//     }
 
 }

@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=side\ location
+comment0.target=Chess_pieces(java.lang.String,\ java.awt.Point)
+comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Chess_pieces\r\n
+comment1.params=next_loc
+comment1.target=boolean\ valid_move(java.awt.Point)
+comment1.text=\r\n\ abract\ class\ valid\ move\r\n\ return\ true\ if\ move\ is\ valid,\ false\ otherwise\r\n\ \r\n
+comment2.params=next_loc
+comment2.target=void\ move(java.awt.Point)
+comment2.text=\r\n\ set\ the\ location\ to\ the\ move\r\n
+comment3.params=
+comment3.target=java.lang.String\ getSide()
+comment4.params=
+comment4.target=java.awt.Point\ getLocation()
+comment5.params=
+comment5.target=void\ draw()
+comment5.text=\r\n\ draw\ it\ self\r\n
+numComments=6
