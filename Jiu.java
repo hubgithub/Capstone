@@ -1,40 +1,45 @@
-
+import java.awt.Point;
 
 /**
- * Write a description of class Jiu here.
+ * sub class of Chess_pieces
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Heng Li) 
+ * @version (4-21-2016)
  */
-public class Jiu
+public class Jiu extends Chess_pieces
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    
+    
 
     /**
      * Default constructor for objects of class Jiu
      */
-    public Jiu()
+    public Jiu(String side,Point location)
     {
-        // initialise instance variables
-        x = 0;
+        super(side,location);
+
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * valid_move return true if valid, false otherwise
      */
-    public int sampleMethod(int y)
+    public boolean valid_move(Point next_loc)
     {
-        // put your code here
-        return x+y;
+        if((this.location.getX() == next_loc.getX()&&this.location.getY()!= next_loc.getY())||(this.location.getY()==next_loc.getY() || this.location.getX() != next_loc.getX()))
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * change the location to the next_loc
+     */
+    public void move(Point next_loc)
+    {
+        this.location = next_loc;
+        
     }
 
 }

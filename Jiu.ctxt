@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=side\ location
+comment0.target=Jiu(java.lang.String,\ java.awt.Point)
+comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Jiu\r\n
+comment1.params=next_loc
+comment1.target=boolean\ valid_move(java.awt.Point)
+comment1.text=\r\n\ valid_move\ return\ true\ if\ valid,\ false\ otherwise\r\n
+comment2.params=next_loc
+comment2.target=void\ move(java.awt.Point)
+comment2.text=\r\n\ change\ the\ location\ to\ the\ next_loc\r\n
+numComments=3

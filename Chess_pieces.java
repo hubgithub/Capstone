@@ -12,6 +12,8 @@ public abstract class Chess_pieces
     String side;
     Point location;
     int border;
+    final int MAX_X = 0;
+    final int MAX_Y = 0;
 
 
     /**
@@ -29,6 +31,7 @@ public abstract class Chess_pieces
         {
             border = 60;
         }
+        
         
 
     }
