@@ -14,15 +14,17 @@ public abstract class Chess_pieces
     int border;
     final int MAX_X = 0;
     final int MAX_Y = 0;
+    String type;
 
 
     /**
      * Default constructor for objects of class Chess_pieces
      */
-    public Chess_pieces(String side, Point location)
+    public Chess_pieces(String side, Point location,String type)
     {
         this.side = side;
         this.location = location;
+        this.type = type;
         if(side.equals("red"))
         {
             border = 40;
@@ -59,6 +61,11 @@ public abstract class Chess_pieces
     public Point getLocation()
     {
         return this.location;
+    }
+    
+    public String getType()
+    {
+        return type;
     }
     
     /**

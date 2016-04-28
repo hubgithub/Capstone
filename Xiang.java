@@ -1,40 +1,34 @@
-
+import java.awt.Point;
 
 /**
- * Write a description of class Xiang here.
+ * Xiang extends Chess_pieces
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Xiang
+public class Xiang extends Chess_pieces
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+
 
     /**
      * Default constructor for objects of class Xiang
      */
-    public Xiang()
+    public Xiang(String side,Point location,String type)
     {
-        // initialise instance variables
-        x = 0;
+        super(side,location,type);
+
+    }
+    
+    
+    public boolean valid_move(Point next_loc)
+    {
+        if((Math.abs(this.location.getX()-next_loc.getX())==2)&&(Math.abs(this.location.getY()-next_loc.getY())==2))
+        {
+            return true;
+        }
+        return false;
+        
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x+y;
-    }
 
 }

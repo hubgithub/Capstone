@@ -15,9 +15,9 @@ public class Jiu extends Chess_pieces
     /**
      * Default constructor for objects of class Jiu
      */
-    public Jiu(String side,Point location)
+    public Jiu(String side,Point location,String type)
     {
-        super(side,location);
+        super(side,location,type);
 
     }
 

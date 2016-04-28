@@ -13,9 +13,9 @@ public class Pao extends Chess_pieces
     /**
      * Default constructor for objects of class Pao
      */
-    public Pao(String side,Point location)
+    public Pao(String side,Point location,String type)
     {
-        super(side,location);
+        super(side,location,type);
 
     }
     

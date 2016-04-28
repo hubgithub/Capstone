@@ -1,25 +1,33 @@
-
+import java.awt.Point;
 
 /**
- * Write a description of class Ma here.
+ * Ma class, extends Chess_pieces
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Ma
+public class Ma extends Chess_pieces
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    
     
 
     /**
-     * Default constructor for objects of class Ma
+     * 
      */
-    public Ma()
+    public Ma(String side,Point location,String type)
     {
-        // initialise instance variables
+        super(side,location,type);
 
     }
-
-
+    
+    public boolean valid_move(Point next_loc)
+    {
+        if( (Math.abs(this.location.getX()-next_loc.getX())==1 && Math.abs(this.location.getY()- next_loc.getY())==2) || (Math.abs(this.location.getX()-next_loc.getX())==2 && Math.abs(this.location.getY()- next_loc.getY())==1))
+        {
+            return true;
+        }
+        return false;
+        
+    }
 
 }

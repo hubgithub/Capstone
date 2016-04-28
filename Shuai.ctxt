@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=side\ location\ type
+comment0.target=Shuai(java.lang.String,\ java.awt.Point,\ java.lang.String)
+comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Shuai\r\n
+comment1.params=next_loc
+comment1.target=boolean\ valid_move(java.awt.Point)
+numComments=2
