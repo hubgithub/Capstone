@@ -14,20 +14,64 @@ public class Ma extends Chess_pieces
     /**
      * 
      */
-    public Ma(String side,Point location,String type)
+    public Ma(String side,String type,String filename,Chess_pieces[][] array, int coL, int roW)
     {
-        super(side,location,type);
+        super(side,type,filename,array,coL,roW);
 
     }
     
-    public boolean valid_move(Point next_loc)
+    public boolean valid_move(int col, int row)
     {
-        if( (Math.abs(this.location.getX()-next_loc.getX())==1 && Math.abs(this.location.getY()- next_loc.getY())==2) || (Math.abs(this.location.getX()-next_loc.getX())==2 && Math.abs(this.location.getY()- next_loc.getY())==1))
+        if(array[row][col] != null && array[row][col].getSide().equals(side))
         {
-            return true;
+            return false;
         }
-        return false;
         
+        if(Math.abs(coL - col) == 2 && Math.abs(roW-row) == 1)
+        {
+            if(col < coL)
+            {
+                if(array[roW][coL - 1] != null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if(array[roW][coL + 1] != null)
+                {
+                    return false;
+                }
+            }
+        }
+        else if(Math.abs(roW - row) == 2 && Math.abs(coL - col) == 1)
+        {
+            if(roW < row)
+            {
+                if(array[roW + 1][coL] != null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if(array[roW -1][coL] != null)
+                {
+                    return false;
+                }                
+            }
+            
+        }
+        else
+        {
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean check_take(int col, int row)
+    {
+        return valid_move(col,row);
     }
 
 }

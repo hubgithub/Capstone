@@ -1,8 +1,8 @@
 
 /**
  * Chess_board, contains all Chess_pieces
- * determine the stauts of the game
- * 
+ * Red is Up
+ * Black is down
  * @author (Heng Li ) 
  * @version (4-21-2016)
  */
@@ -17,33 +17,35 @@ public class Chess_board
     public Chess_board()
     {
         
-
-    }
-
-    /**
-     * see if any other same side pieces blocking the way
-     */
-    public boolean chess_block()
-    {
         
-    }
-    
-    
-    /**
-     * see if it can take other side pieces
-     */
-    public boolean chess_take()
-    {
-    }
-    
-    /**
-     * make move method
-     * move the piece to a certain postion in the array
-     *   take other side pieces
-     */
-    public void make_move()
-    {
-        
-    }
 
+    }
+    
+    /**
+     * Check if game ends
+     */
+    public boolean gameEnds()
+    {
+        Chess_pieces[] one = new Chess_pieces[2];
+        int index = 0;
+        for(int i = 0; i < 10; i++)
+        {
+            for(int x = 0; x < 9; x++)
+            {
+                if(pieces[i][x] != null && pieces[i][x].getType().equals("Shuai"))
+                {
+                    one[index] = pieces[i][x];
+                    index++;
+                }
+            }
+        }
+        
+        if(one[1] == null)
+        {
+            return true;
+        }
+        
+        return false;
+    }
+    
 }

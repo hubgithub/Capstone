@@ -2,6 +2,9 @@ import java.awt.Point;
 
 /**
  * Xiang extends Chess_pieces
+ * Red Up = 4
+ * Black Down = 5
+ * 
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -13,21 +16,86 @@ public class Xiang extends Chess_pieces
     /**
      * Default constructor for objects of class Xiang
      */
-    public Xiang(String side,Point location,String type)
+    public Xiang(String side,String type,String filename,Chess_pieces[][] array, int x, int y)
     {
-        super(side,location,type);
+        super(side,type,filename,array,x,y);
 
     }
     
     
-    public boolean valid_move(Point next_loc)
+    public boolean valid_move(int col, int row)
     {
-        if((Math.abs(this.location.getX()-next_loc.getX())==2)&&(Math.abs(this.location.getY()-next_loc.getY())==2))
+        if(array[row][col] != null && array[row][col].getSide().equals(side))
         {
-            return true;
+            return false;
         }
-        return false;
         
+        if(side.equals("red"))
+        {
+            if(row > 4)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if(row < 5)
+            {
+                return false;
+            }
+        }
+        
+        if(Math.abs(roW-row) == 2 && Math.abs(coL - col) == 2)
+        {
+            if(roW < row)
+            {
+                if(coL < col)
+                {
+                    if(array[roW+1][coL+1] != null)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    if(array[roW+1][coL - 1] != null)
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                if(coL < col)
+                {
+                    if(array[roW-1][coL+1] != null)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    if(array[roW-1][coL - 1] != null)
+                    {
+                        return false;
+                    }
+                }                
+            }
+            
+            
+        }
+        else
+        {
+            return false;
+        }
+        
+        return true;
+        
+    }
+    
+    public boolean check_take(int col, int row)
+    {
+        return valid_move(col,row);
     }
 
 

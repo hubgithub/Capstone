@@ -12,26 +12,37 @@ public abstract class Chess_pieces
     String side;
     Point location;
     int border;
+    
+    int coL;
+    int roW;
     final int MAX_X = 0;
     final int MAX_Y = 0;
     String type;
+    String filename;
+    Chess_pieces[][] array;
+    
+
 
 
     /**
      * Default constructor for objects of class Chess_pieces
      */
-    public Chess_pieces(String side, Point location,String type)
+    public Chess_pieces(String side,String type,String filename,Chess_pieces[][] array, int coL, int roW)
     {
         this.side = side;
-        this.location = location;
         this.type = type;
+        this.filename = filename;
+        this.array = array;
+        this.coL = coL;
+        this.roW = roW;
+        
         if(side.equals("red"))
         {
-            border = 40;
+            border = 4;
         }
         else
         {
-            border = 60;
+            border = 5;
         }
         
         
@@ -43,14 +54,27 @@ public abstract class Chess_pieces
      * return true if move is valid, false otherwise
      * 
      */
-    public abstract boolean valid_move(Point next_loc);
+    public abstract boolean valid_move(int col, int row);
+    
+    public abstract boolean check_take(int col, int row);
     
     /**
      * set the location to the move
      */
-    public void move(Point next_loc)
+    public void move(int col, int row)
     {
-        this.location = next_loc;
+        this.array[col][row] = this.array[roW][coL];
+        this.array[roW][coL] = null;
+    }
+    
+    public int getCol()
+    {
+        return coL;
+    }
+    
+    public int getRow()
+    {
+        return roW;
     }
     
     public String getSide()
@@ -58,10 +82,6 @@ public abstract class Chess_pieces
         return this.side;
     }
     
-    public Point getLocation()
-    {
-        return this.location;
-    }
     
     public String getType()
     {

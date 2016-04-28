@@ -15,31 +15,94 @@ public class Jiu extends Chess_pieces
     /**
      * Default constructor for objects of class Jiu
      */
-    public Jiu(String side,Point location,String type)
+    public Jiu(String side,String type,String filename,Chess_pieces[][] array, int coL, int roW)
     {
-        super(side,location,type);
+        super(side,type,filename,array,coL,roW);
 
     }
 
     /**
      * valid_move return true if valid, false otherwise
      */
-    public boolean valid_move(Point next_loc)
+    public boolean valid_move(int col, int row)
     {
-        if((this.location.getX() == next_loc.getX()&&this.location.getY()!= next_loc.getY())||(this.location.getY()==next_loc.getY() || this.location.getX() != next_loc.getX()))
+        if(array[row][col] != null)
         {
-            return true;
+            return false;
         }
-        return false;
+        
+        if(coL != col && row == roW)
+        {
+            
+            for(int i = coL+1; i <= col; i++)
+            {
+                if(array[row][i] != null)
+                {
+                    return false;
+                }
+                
+            }
+        }
+        else if(roW != row && coL == col)
+        {
+            for(int i = roW + 1; i <= row; i++)
+            {
+                if(array[i][col] != null)
+                {
+                    return false;
+                }
+            }
+            
+        }
+        else
+        {
+            return false;
+        }
+        
+        return true;
     }
     
-    /**
-     * change the location to the next_loc
-     */
-    public void move(Point next_loc)
+    public boolean check_take(int col, int row)
     {
-        this.location = next_loc;
+        if(array[row][col].getSide().equals(side))
+        {
+            return false;
+        }
+        
+        if(coL != col && row == roW)
+        {
+            
+            for(int i = coL+1; i <= col; i++)
+            {
+                if(array[row][i] != null)
+                {
+                    return false;
+                }
+                
+            }
+        }
+        else if(roW != row && coL == col)
+        {
+            for(int i = roW + 1; i <= row; i++)
+            {
+                if(array[i][col] != null)
+                {
+                    return false;
+                }
+            }
+            
+        }
+        else
+        {
+            return false;
+        }
+        
+        return true;        
+        
+        
         
     }
+    
+
 
 }

@@ -13,24 +13,29 @@ public class Zu extends Chess_pieces
     /**
      * Default constructor for objects of class Zu
      */
-    public Zu(String side,Point location,String type)
+    public Zu(String side,String type,String filename,Chess_pieces[][] array,int x, int y)
     {
-        super(side,location,type);
+        super(side,type,filename,array,x,y);
 
     }
 
 
-    public boolean valid_move(Point next_loc)
+    public boolean valid_move(int col, int row)
     {
-        if(Math.abs(next_loc.getX()- this.location.getX())+Math.abs(next_loc.getY()-this.location.getY()) != 1)
+        if(array[row][col].getSide().equals(array[roW][coL].getSide()))
+        {
+            return false;
+        }
+        
+        if(Math.abs(col - coL)+Math.abs(row - roW) != 1)
         {
             if(side.equals("red"))
             {
-                if((this.location.getY() - next_loc.getY()) < 0)
+                if((roW - row) < 0)
                 {
                     return false;
                 }
-                else if((this.location.getY() > border) && (this.location.getX() != next_loc.getX()))
+                else if((roW > border) && (coL != col))
                 {
                     return false;
                 }
@@ -38,12 +43,12 @@ public class Zu extends Chess_pieces
             }
             else
             {
-                if((this.location.getY() - next_loc.getY()) > 0)
+                if((roW - row) > 0)
                 {
                     return false;
                     
                 }
-                else if((this.location.getY() < border) && (this.location.getX() != next_loc.getX()))
+                else if((roW < border) && (coL != col))
                 {
                     return false;
                 }
@@ -53,15 +58,20 @@ public class Zu extends Chess_pieces
         }
         
         return true;
+    }
+    
+    public boolean check_take(int col,int row)
+    {
+        if(valid_move(col,row))
+        {
+            return true;
+        }
+        
+        return false;
         
         
     }
     
     
-//     public void move(Point next_loc)
-//     {
-//         this.location = next_loc;
-// 
-//     }
 
 }

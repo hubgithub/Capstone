@@ -1,7 +1,9 @@
 #BlueJ class context
-comment0.params=side\ location\ type
-comment0.target=Shi(java.lang.String,\ java.awt.Point,\ java.lang.String)
+comment0.params=side\ type\ filename\ array\ x\ y
+comment0.target=Shi(java.lang.String,\ java.lang.String,\ java.lang.String,\ Chess_pieces[][],\ int,\ int)
 comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Shi\r\n
-comment1.params=next_loc
-comment1.target=boolean\ valid_move(java.awt.Point)
-numComments=2
+comment1.params=col\ row
+comment1.target=boolean\ valid_move(int,\ int)
+comment2.params=col\ row
+comment2.target=boolean\ check_take(int,\ int)
+numComments=3
