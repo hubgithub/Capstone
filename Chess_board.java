@@ -1,3 +1,4 @@
+import java.awt.Point;
 
 /**
  * Chess_board, contains all Chess_pieces
@@ -10,6 +11,7 @@ public class Chess_board
 {
 
     private Chess_pieces[][] pieces = new Chess_pieces[10][9];
+    private Point[][] location = new Point[10][9];
 
     /**
      * set the initial postion of all pieces
@@ -18,7 +20,6 @@ public class Chess_board
     {
         
         
-
     }
     
     /**
@@ -46,6 +47,37 @@ public class Chess_board
         }
         
         return false;
+    }
+    
+    public String whoWon()
+    {
+        
+        String winner = "";
+        
+        if(gameEnds())
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                for(int x = 0; x < 9; x++)
+                {
+                    if(pieces[i][x] != null && pieces[i][x].getType().equals("Shuai"))
+                    {
+                        winner = pieces[i][x].getSide();
+
+                    }
+                }
+            }
+            
+            
+        }
+        else
+        {
+            winner = "None";
+            
+        }
+        
+        return winner;
+        
     }
     
 }

@@ -26,7 +26,7 @@ public class Jiu extends Chess_pieces
      */
     public boolean valid_move(int col, int row)
     {
-        if(array[row][col] != null)
+        if(array[row][col] != null && array[row][col].getSide().equals(side))
         {
             return false;
         }
@@ -64,45 +64,48 @@ public class Jiu extends Chess_pieces
     
     public boolean check_take(int col, int row)
     {
-        if(array[row][col].getSide().equals(side))
-        {
-            return false;
-        }
-        
-        if(coL != col && row == roW)
-        {
-            
-            for(int i = coL+1; i <= col; i++)
-            {
-                if(array[row][i] != null)
-                {
-                    return false;
-                }
-                
-            }
-        }
-        else if(roW != row && coL == col)
-        {
-            for(int i = roW + 1; i <= row; i++)
-            {
-                if(array[i][col] != null)
-                {
-                    return false;
-                }
-            }
-            
-        }
-        else
-        {
-            return false;
-        }
-        
-        return true;        
-        
-        
+        return valid_move(col,row);
+
         
     }
     
 
 
 }
+
+//         if(array[row][col].getSide().equals(side))
+//         {
+//             return false;
+//         }
+//         
+//         if(coL != col && row == roW)
+//         {
+//             
+//             for(int i = coL+1; i <= col; i++)
+//             {
+//                 if(array[row][i] != null)
+//                 {
+//                     return false;
+//                 }
+//                 
+//             }
+//         }
+//         else if(roW != row && coL == col)
+//         {
+//             for(int i = roW + 1; i <= row; i++)
+//             {
+//                 if(array[i][col] != null)
+//                 {
+//                     return false;
+//                 }
+//             }
+//             
+//         }
+//         else
+//         {
+//             return false;
+//         }
+//         
+//         return true;        
+//         
+//         

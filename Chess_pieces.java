@@ -10,13 +10,10 @@ public abstract class Chess_pieces
 {
     
     String side;
-    Point location;
     int border;
     
     int coL;
     int roW;
-    final int MAX_X = 0;
-    final int MAX_Y = 0;
     String type;
     String filename;
     Chess_pieces[][] array;
