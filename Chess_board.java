@@ -18,8 +18,27 @@ public class Chess_board
      */
     public Chess_board()
     {
+       
         
-        
+       pieces[0] = 
+       {
+           new Chess_pieces("red","Jiu","",new Chess_pieces[10][9],0,0),
+           new Chess_pieces("red","Ma","",new Chess_pieces[10][9],1,0),
+           new Chess_pieces("red","Xiang","",new Chess_pieces[10][9],2,0),
+           new Chess_pieces("red","Shi","",new Chess_pieces[10][9],3,0),
+           new Chess_pieces("red","Shuai","",new Chess_pieces[10][9],4,0),
+           new Chess_pieces("red","Shi","",new Chess_pieces[10][9],5,0),
+           new Chess_pieces("red","Xiang","",new Chess_pieces[10][9],6,0),
+           new Chess_pieces("red","Ma","",new Chess_pieces[10][9],7,0),
+           new Chess_pieces("red","Jiu","",new Chess_pieces[10][9],8,0)
+
+       }
+       
+       pieces[2][1] = new Chess_pieces("red","Pao","",new Chess_pieces[10][9],1,2);
+       pieces[2][7] = new Chess_pieces("red","Pao","",new Chess_pieces[10][9],7,2);
+            
+            
+            
     }
     
     /**

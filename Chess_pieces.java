@@ -46,6 +46,11 @@ public abstract class Chess_pieces
 
     }
     
+    public void setArray(Chess_pieces[][] array)
+    {
+        this.array = array;
+    }
+    
     /**
      * abract class valid move
      * return true if move is valid, false otherwise
