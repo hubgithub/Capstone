@@ -66,6 +66,18 @@ public class Chess_board
        /////////////////////////////////////////////////////////////////////////////
        
        
+       for(int i = 0; i < pieces.length;i++)
+       {
+           for(int x = 0; x < pieces[0].length;x++)
+           {
+               if(pieces[i][x] != null)
+               {
+                   pieces[i][x].setArray(pieces);
+               }
+           }
+       }
+       
+       
        
             
             
