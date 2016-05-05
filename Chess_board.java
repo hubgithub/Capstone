@@ -142,4 +142,15 @@ public class Chess_board
         
     }
     
+    public Chess_pieces[][] getPieces()
+    {
+        return pieces;
+    }
+    
+    
+    public Point[][] getPoints()
+    {
+        return location;
+    }
+    
 }
