@@ -142,6 +142,8 @@ public class Chess_board
         
     }
     
+    
+    
     public Chess_pieces[][] getPieces()
     {
         return pieces;
