@@ -1,4 +1,18 @@
 import java.awt.Point;
+import javax.swing.JPanel;
+import java.awt.geom.Point2D;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.lang.Math;
+import javax.swing.JColorChooser;
+import java.awt.geom.Ellipse2D;
+import java.awt.Rectangle;
 
 /**
  * Chess_board, contains all Chess_pieces
@@ -7,19 +21,21 @@ import java.awt.Point;
  * @author (Heng Li ) 
  * @version (4-21-2016)
  */
-public class Chess_board
+public class Chess_board extends JPanel
 {
 
     private Chess_pieces[][] pieces = new Chess_pieces[10][9];
     private Point[][] location = new Point[10][9];
+    private Chess_pieces select;
 
     /**
      * set the initial postion of all pieces
      */
     public Chess_board()
     {
+       this.setSize(597,533);
        
-        
+       
         /////////////////////////////////////////////////////////////////////////
        pieces[0][0] = new Jiu("red","Jiu","",new Chess_pieces[10][9],0,0);
        pieces[0][1] = new Ma("red","Ma","",new Chess_pieces[10][9],1,0);
