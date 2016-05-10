@@ -1,5 +1,13 @@
 import java.awt.Point;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+import java.io.File;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
+import java.awt.Image;
 
+
+import java.awt.image.BufferedImage;
 /**
  * Super Class of all Chess pieces
  * 
@@ -17,7 +25,7 @@ public abstract class Chess_pieces
     String type;
     String filename;
     Chess_pieces[][] array;
-    
+    Image pic;
 
 
 
@@ -33,6 +41,15 @@ public abstract class Chess_pieces
         this.coL = coL;
         this.roW = roW;
         
+        try
+        {
+            pic = ImageIO.read(new File(filename));
+        }
+        catch(IOException e){}
+    
+       
+        
+        
         if(side.equals("red"))
         {
             border = 4;
@@ -40,16 +57,30 @@ public abstract class Chess_pieces
         else
         {
             border = 5;
-        }
         
+        }
+       
         
 
     }
+    
+        /**
+     * draw it self
+     */
+    public void draw(Graphics2D g2,Point[][] location)
+    {
+            g2.drawImage(pic,(int)location[roW][coL].getX(),(int)location[roW][coL].getY(), null);
+    }
+    
+    
+    
     
     public void setArray(Chess_pieces[][] array)
     {
         this.array = array;
     }
+    
+    
     
     /**
      * abract class valid move
@@ -90,12 +121,7 @@ public abstract class Chess_pieces
         return type;
     }
     
-    /**
-     * draw it self
-     */
-    public void draw()
-    {
-    }
+
 
 
 
