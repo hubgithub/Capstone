@@ -71,9 +71,6 @@ public abstract class Chess_pieces
      */
     public void draw(Graphics2D g2)
     {
-        System.out.println("X" + location[roW][coL].getX());
-        System.out.println("Y" + location[roW][coL].getY());
-        
         g2.drawImage(pic,(int)location[roW][coL].getX(),  (int)location[roW][coL].getY()  , null);
     }
     

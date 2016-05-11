@@ -13,7 +13,11 @@ import java.lang.Math;
 import javax.swing.JColorChooser;
 import java.awt.geom.Ellipse2D;
 import java.awt.Rectangle;
-
+import javax.imageio.ImageIO;
+import java.io.IOException;
+import java.io.File;
+import java.awt.image.BufferedImage;
+import java.awt.Image;
 /**
  * Chess_board, contains all Chess_pieces
  * Red is Up
@@ -28,6 +32,8 @@ public class Chess_board extends JPanel
     private Point[][] location = new Point[10][9];
     private Chess_pieces select;
     private boolean black_move;
+    private Image pic;
+
     
 
     /**
@@ -39,49 +45,55 @@ public class Chess_board extends JPanel
        black_move = true;
        
        
+        try
+        {
+            pic = ImageIO.read(new File("./Images/Chessboard.jpg"));
+        }
+        catch(IOException e){}           
+       
         /////////////////////////////////////////////////////////////////////////
        pieces[0][0] = new Jiu("red","Jiu","./Images/Red_Jiu.jpg",new Chess_pieces[10][9],0,0,new Point[10][9]);
-       pieces[0][1] = new Ma("red","Ma","",new Chess_pieces[10][9],1,0,new Point[10][9]);
-       pieces[0][2] = new Xiang("red","Xiang","",new Chess_pieces[10][9],2,0,new Point[10][9]);
-       pieces[0][3] = new Shi("red","Shi","",new Chess_pieces[10][9],3,0,new Point[10][9]);
-       pieces[0][4] = new Shuai("red","Shuai","",new Chess_pieces[10][9],4,0,new Point[10][9]);
-       pieces[0][5] = new Shi("red","Shi","",new Chess_pieces[10][9],5,0,new Point[10][9]);
-       pieces[0][6] = new Xiang("red","Xiang","",new Chess_pieces[10][9],6,0,new Point[10][9]);
-       pieces[0][7] = new Ma("red","Ma","",new Chess_pieces[10][9],7,0,new Point[10][9]);
-       pieces[0][8] = new Jiu("red","Jiu","",new Chess_pieces[10][9],8,0,new Point[10][9]);
+       pieces[0][1] = new Ma("red","Ma","./Images/Red_Ma.jpg",new Chess_pieces[10][9],1,0,new Point[10][9]);
+       pieces[0][2] = new Xiang("red","Xiang","./Images/Red_Xiang.jpg",new Chess_pieces[10][9],2,0,new Point[10][9]);
+       pieces[0][3] = new Shi("red","Shi","./Images/Red_Shi.jpg",new Chess_pieces[10][9],3,0,new Point[10][9]);
+       pieces[0][4] = new Shuai("red","Shuai","./Images/Red_Shuai.jpg",new Chess_pieces[10][9],4,0,new Point[10][9]);
+       pieces[0][5] = new Shi("red","Shi","./Images/Red_Shi.jpg",new Chess_pieces[10][9],5,0,new Point[10][9]);
+       pieces[0][6] = new Xiang("red","Xiang","./Images/Red_Xiang.jpg",new Chess_pieces[10][9],6,0,new Point[10][9]);
+       pieces[0][7] = new Ma("red","Ma","./Images/Red_Ma.jpg",new Chess_pieces[10][9],7,0,new Point[10][9]);
+       pieces[0][8] = new Jiu("red","Jiu","./Images/Red_Jiu.jpg",new Chess_pieces[10][9],8,0,new Point[10][9]);
 
        
-       pieces[2][1] = new Pao("red","Pao","",new Chess_pieces[10][9],1,2,new Point[10][9]);
-       pieces[2][7] = new Pao("red","Pao","",new Chess_pieces[10][9],7,2,new Point[10][9]);
+       pieces[2][1] = new Pao("red","Pao","./Images/Red_Pao.jpg",new Chess_pieces[10][9],1,2,new Point[10][9]);
+       pieces[2][7] = new Pao("red","Pao","./Images/Red_Pao.jpg",new Chess_pieces[10][9],7,2,new Point[10][9]);
        
-       pieces[3][0] = new Zu("red","Zu","",new Chess_pieces[10][9],0,3,new Point[10][9]);
-       pieces[3][2] = new Zu("red","Zu","",new Chess_pieces[10][9],2,3,new Point[10][9]);
-       pieces[3][4] = new Zu("red","Zu","",new Chess_pieces[10][9],4,3,new Point[10][9]);
-       pieces[3][6] = new Zu("red","Zu","",new Chess_pieces[10][9],6,3,new Point[10][9]);
-       pieces[3][8] = new Zu("red","Zu","",new Chess_pieces[10][9],8,3,new Point[10][9]);
+       pieces[3][0] = new Zu("red","Zu","./Images/Red_Zu.jpg",new Chess_pieces[10][9],0,3,new Point[10][9]);
+       pieces[3][2] = new Zu("red","Zu","./Images/Red_Zu.jpg",new Chess_pieces[10][9],2,3,new Point[10][9]);
+       pieces[3][4] = new Zu("red","Zu","./Images/Red_Zu.jpg",new Chess_pieces[10][9],4,3,new Point[10][9]);
+       pieces[3][6] = new Zu("red","Zu","./Images/Red_Zu.jpg",new Chess_pieces[10][9],6,3,new Point[10][9]);
+       pieces[3][8] = new Zu("red","Zu","./Images/Red_Zu.jpg",new Chess_pieces[10][9],8,3,new Point[10][9]);
        
        
        //楚河                                                             汉界
        
-       pieces[6][0] = new Zu("Black","Zu","",new Chess_pieces[10][9],0,6,new Point[10][9]);
-       pieces[6][2] = new Zu("Black","Zu","",new Chess_pieces[10][9],2,6,new Point[10][9]);
-       pieces[6][4] = new Zu("Black","Zu","",new Chess_pieces[10][9],4,6,new Point[10][9]);
-       pieces[6][6] = new Zu("Black","Zu","",new Chess_pieces[10][9],6,6,new Point[10][9]);
-       pieces[6][8] = new Zu("Black","Zu","",new Chess_pieces[10][9],8,6,new Point[10][9]);
+       pieces[6][0] = new Zu("Black","Zu","./Images/Black_Zu.jpg",new Chess_pieces[10][9],0,6,new Point[10][9]);
+       pieces[6][2] = new Zu("Black","Zu","./Images/Black_Zu.jpg",new Chess_pieces[10][9],2,6,new Point[10][9]);
+       pieces[6][4] = new Zu("Black","Zu","./Images/Black_Zu.jpg",new Chess_pieces[10][9],4,6,new Point[10][9]);
+       pieces[6][6] = new Zu("Black","Zu","./Images/Black_Zu.jpg",new Chess_pieces[10][9],6,6,new Point[10][9]);
+       pieces[6][8] = new Zu("Black","Zu","./Images/Black_Zu.jpg",new Chess_pieces[10][9],8,6,new Point[10][9]);
        
-       pieces[7][1] = new Pao("Black","Pao","",new Chess_pieces[10][9],1,7,new Point[10][9]);
-       pieces[7][7] = new Pao("Black","Pao","",new Chess_pieces[10][9],7,7,new Point[10][9]);
+       pieces[7][1] = new Pao("Black","Pao","./Images/Black_Pao.jpg",new Chess_pieces[10][9],1,7,new Point[10][9]);
+       pieces[7][7] = new Pao("Black","Pao","./Images/Black_Pao.jpg",new Chess_pieces[10][9],7,7,new Point[10][9]);
        
        
-       pieces[9][0] = new Jiu("Black","Jiu","",new Chess_pieces[10][9],0,9,new Point[10][9]);
-       pieces[9][1] = new Ma("Black","Ma","",new Chess_pieces[10][9],1,9,new Point[10][9]);
-       pieces[9][2] = new Xiang("Black","Xiang","",new Chess_pieces[10][9],2,9,new Point[10][9]);
-       pieces[9][3] = new Shi("Black","Shi","",new Chess_pieces[10][9],3,9,new Point[10][9]);
-       pieces[9][4] = new Shuai("Black","Shuai","",new Chess_pieces[10][9],4,9,new Point[10][9]);
-       pieces[9][5] = new Shi("Black","Shi","",new Chess_pieces[10][9],5,9,new Point[10][9]);
-       pieces[9][6] = new Xiang("Black","Xiang","",new Chess_pieces[10][9],6,9,new Point[10][9]);
-       pieces[9][7] = new Ma("Black","Ma","",new Chess_pieces[10][9],7,9,new Point[10][9]);
-       pieces[9][8] = new Jiu("Black","Jiu","",new Chess_pieces[10][9],8,9,new Point[10][9]);
+       pieces[9][0] = new Jiu("Black","Jiu","./Images/Black_Jiu.jpg",new Chess_pieces[10][9],0,9,new Point[10][9]);
+       pieces[9][1] = new Ma("Black","Ma","./Images/Black_Ma.jpg",new Chess_pieces[10][9],1,9,new Point[10][9]);
+       pieces[9][2] = new Xiang("Black","Xiang","./Images/Black_Xiang.jpg",new Chess_pieces[10][9],2,9,new Point[10][9]);
+       pieces[9][3] = new Shi("Black","Shi","./Images/Black_Shi.jpg",new Chess_pieces[10][9],3,9,new Point[10][9]);
+       pieces[9][4] = new Shuai("Black","Shuai","./Images/Black_Shuai.jpg",new Chess_pieces[10][9],4,9,new Point[10][9]);
+       pieces[9][5] = new Shi("Black","Shi","./Images/Black_Shi.jpg",new Chess_pieces[10][9],5,9,new Point[10][9]);
+       pieces[9][6] = new Xiang("Black","Xiang","./Images/Black_Xiang.jpg",new Chess_pieces[10][9],6,9,new Point[10][9]);
+       pieces[9][7] = new Ma("Black","Ma","./Images/Black_Ma.jpg",new Chess_pieces[10][9],7,9,new Point[10][9]);
+       pieces[9][8] = new Jiu("Black","Jiu","./Images/Black_Jiu.jpg",new Chess_pieces[10][9],8,9,new Point[10][9]);
        /////////////////////////////////////////////////////////////////////////////
        int row_loc = 10;
        int col_loc = 5;
@@ -115,7 +127,10 @@ public class Chess_board extends JPanel
                
             }
        }
-
+       
+       Listener listener = new Listener();
+       this.addMouseListener(listener);
+       
     }
     
     /**
@@ -180,7 +195,7 @@ public class Chess_board extends JPanel
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-        //g2.drawImage(pic,(int)location[roW][coL].getX(),  (int)location[roW][coL].getY()  , null);
+        g2.drawImage(pic,0,0, null);
         
         for(int i = 0; i < pieces.length;i++)
         {
@@ -238,8 +253,8 @@ public class Chess_board extends JPanel
                 }
                 else
                 {
-                    int row = 99;
-                    int col = 99;
+                    int row = 0;
+                    int col = 0;
                     
                     for(int i = 0; i < pieces.length; i++)
                     {
@@ -320,6 +335,7 @@ public class Chess_board extends JPanel
                 
             }
             
+            repaint();
         }
         
 

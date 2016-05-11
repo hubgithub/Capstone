@@ -11,8 +11,8 @@ import java.awt.BorderLayout;
  */
 public class Play extends JFrame
 {
-    private int WIDTH = 533;
-    private int HEIGHT = 597;
+    private int WIDTH = 540;
+    private int HEIGHT = 630;
     private Chess_board board;
 
     /**
