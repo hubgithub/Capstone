@@ -27,6 +27,8 @@ public class Chess_board extends JPanel
     private Chess_pieces[][] pieces = new Chess_pieces[10][9];
     private Point[][] location = new Point[10][9];
     private Chess_pieces select;
+    private boolean black_move;
+    
 
     /**
      * set the initial postion of all pieces
@@ -34,10 +36,11 @@ public class Chess_board extends JPanel
     public Chess_board()
     {
        this.setSize(597,533);
+       black_move = true;
        
        
         /////////////////////////////////////////////////////////////////////////
-       pieces[0][0] = new Jiu("red","Jiu","",new Chess_pieces[10][9],0,0,new Point[10][9]);
+       pieces[0][0] = new Jiu("red","Jiu","./Images/Red_Jiu.jpg",new Chess_pieces[10][9],0,0,new Point[10][9]);
        pieces[0][1] = new Ma("red","Ma","",new Chess_pieces[10][9],1,0,new Point[10][9]);
        pieces[0][2] = new Xiang("red","Xiang","",new Chess_pieces[10][9],2,0,new Point[10][9]);
        pieces[0][3] = new Shi("red","Shi","",new Chess_pieces[10][9],3,0,new Point[10][9]);
@@ -87,7 +90,6 @@ public class Chess_board extends JPanel
        {
            for(int x = 0; x < pieces[0].length;x++)
            {
-               
                if(pieces[i][x] != null)
                {
                    pieces[i][x].setArray(pieces);
@@ -178,12 +180,16 @@ public class Chess_board extends JPanel
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
+        //g2.drawImage(pic,(int)location[roW][coL].getX(),  (int)location[roW][coL].getY()  , null);
         
         for(int i = 0; i < pieces.length;i++)
         {
             for(int x = 0; x < pieces[0].length;x++)
             {
-                pieces[i][x].draw(g2);
+                if(pieces[i][x] != null)
+                {
+                    pieces[i][x].draw(g2);
+                }
             }
         }
         
@@ -200,5 +206,135 @@ public class Chess_board extends JPanel
     {
         return location;
     }
+    
+    
+    class Listener implements MouseListener
+    {
+        int time = 0;
+        Chess_pieces active_pieces;
+        
+        public void mouseClicked(MouseEvent e)
+        {
+            time++;
+            
+            if(black_move)
+            {
+                if(time%2 != 0)
+                {
+                    Point point = new Point(e.getX(),e.getY());
+                    
+                    for(int i = 0; i < pieces.length; i++)
+                    {
+                        for(int x = 0; x < pieces[0].length;x++)
+                        {
+                            if(pieces[i][x]!=null && pieces[i][x].isInside(point))
+                            {
+                                active_pieces = pieces[i][x];
+                            }
+                        }
+                    }
+                    
+                    
+                }
+                else
+                {
+                    int row = 99;
+                    int col = 99;
+                    
+                    for(int i = 0; i < pieces.length; i++)
+                    {
+                        for(int x = 0; x < pieces[0].length;x++)
+                        {
+                            if(Math.abs(e.getX()-location[i][x].getX())<= 20 && Math.abs(e.getY()-location[i][x].getY()) <= 20)
+                            {
+                                row = i;
+                                col = x;
+                            }
+                        }
+                    }
+                    
+                    if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
+                    {
+                        active_pieces.move(col,row);
+                        
+                        black_move = false;
+                    }
+                    else
+                    {
+                        black_move = true;
+                    }
+                    
+                    
+                }
+            }
+            else
+            {
+                if(time%2 != 0)
+                {
+                    Point point = new Point(e.getX(),e.getY());
+                    
+                    for(int i = 0; i < pieces.length; i++)
+                    {
+                        for(int x = 0; x < pieces[0].length;x++)
+                        {
+                            if(pieces[i][x]!=null && pieces[i][x].isInside(point))
+                            {
+                                active_pieces = pieces[i][x];
+                            }
+                        }
+                    }
+                    
+                    
+                }
+                else
+                {
+                    int row = 99;
+                    int col = 99;
+                    
+                    for(int i = 0; i < pieces.length; i++)
+                    {
+                        for(int x = 0; x < pieces[0].length;x++)
+                        {
+                            if(Math.abs(e.getX()-location[i][x].getX())<= 20 && Math.abs(e.getY()-location[i][x].getY()) <= 20)
+                            {
+                                row = i;
+                                col = x;
+                            }
+                        }
+                    }
+                    
+                    if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
+                    {
+                        active_pieces.move(col,row);
+                        
+                        black_move = true;
+                    }
+                    else
+                    {
+                        black_move = false;
+                    }
+                    
+                    
+                }                
+                
+                
+            }
+            
+        }
+        
+
+        
+        public void mouseExited(MouseEvent e){}
+
+        
+        public void mousePressed(MouseEvent e) {}
+        
+        public void mouseReleased(MouseEvent e){}
+        
+        public void mouseEntered(MouseEvent e){}
+        
+        public void moseExited(MouseEvent e){}
+        
+    }    
     
 }

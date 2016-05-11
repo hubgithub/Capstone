@@ -12,7 +12,7 @@ import java.awt.BorderLayout;
 public class Play extends JFrame
 {
     private int WIDTH = 533;
-    private int LENGTH = 597;
+    private int HEIGHT = 597;
     private Chess_board board;
 
     /**
@@ -22,13 +22,14 @@ public class Play extends JFrame
     {
         super("CHESS");
         board = new Chess_board();
-        setSize(WIDTH,HEIGHT);
+        this.add(board);
+        this.setSize(WIDTH,HEIGHT);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
     
-    public static void mian()
+    public static void main()
     {
         Play play = new Play();
     }

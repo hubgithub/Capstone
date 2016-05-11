@@ -3,5 +3,5 @@ comment0.params=
 comment0.target=Play()
 comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Play\r\n
 comment1.params=
-comment1.target=void\ mian()
+comment1.target=void\ main()
 numComments=2

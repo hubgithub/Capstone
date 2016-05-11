@@ -50,9 +50,6 @@ public abstract class Chess_pieces
             pic = ImageIO.read(new File(filename));
         }
         catch(IOException e){}
-    
-       
-        
         
         if(side.equals("red"))
         {
@@ -74,7 +71,10 @@ public abstract class Chess_pieces
      */
     public void draw(Graphics2D g2)
     {
-            g2.drawImage(pic,(int)location[roW][coL].getX(),(int)location[roW][coL].getY(), null);
+        System.out.println("X" + location[roW][coL].getX());
+        System.out.println("Y" + location[roW][coL].getY());
+        
+        g2.drawImage(pic,(int)location[roW][coL].getX(),  (int)location[roW][coL].getY()  , null);
     }
     
     
