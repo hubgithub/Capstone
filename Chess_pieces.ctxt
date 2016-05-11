@@ -1,10 +1,14 @@
 #BlueJ class context
-comment0.params=side\ type\ filename\ array\ coL\ roW
-comment0.target=Chess_pieces(java.lang.String,\ java.lang.String,\ java.lang.String,\ Chess_pieces[][],\ int,\ int)
+comment0.params=side\ type\ filename\ array\ coL\ roW\ location
+comment0.target=Chess_pieces(java.lang.String,\ java.lang.String,\ java.lang.String,\ Chess_pieces[][],\ int,\ int,\ java.awt.Point[][])
 comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Chess_pieces\r\n
-comment1.params=g2\ location
-comment1.target=void\ draw(java.awt.Graphics2D,\ java.awt.Point[][])
+comment1.params=g2
+comment1.target=void\ draw(java.awt.Graphics2D)
 comment1.text=\r\n\ draw\ it\ self\r\n
+comment10.params=location
+comment10.target=void\ setLocation(java.awt.Point[][])
+comment11.params=point
+comment11.target=boolean\ isInside(java.awt.Point)
 comment2.params=array
 comment2.target=void\ setArray(Chess_pieces[][])
 comment3.params=col\ row
@@ -23,4 +27,4 @@ comment8.params=
 comment8.target=java.lang.String\ getSide()
 comment9.params=
 comment9.target=java.lang.String\ getType()
-numComments=10
+numComments=12

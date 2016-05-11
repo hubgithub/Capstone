@@ -16,9 +16,9 @@ public class Xiang extends Chess_pieces
     /**
      * Default constructor for objects of class Xiang
      */
-    public Xiang(String side,String type,String filename,Chess_pieces[][] array, int x, int y)
+    public Xiang(String side,String type,String filename,Chess_pieces[][] array, int x, int y,Point[][] location)
     {
-        super(side,type,filename,array,x,y);
+        super(side,type,filename,array,x,y,location);
 
     }
     

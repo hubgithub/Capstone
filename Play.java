@@ -11,7 +11,6 @@ import java.awt.BorderLayout;
  */
 public class Play extends JFrame
 {
-    /** description of instance variable x (add comment for each instance variable) */
     private int WIDTH = 533;
     private int LENGTH = 597;
     private Chess_board board;
@@ -23,6 +22,15 @@ public class Play extends JFrame
     {
         super("CHESS");
         board = new Chess_board();
+        setSize(WIDTH,HEIGHT);
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+    
+    public static void mian()
+    {
+        Play play = new Play();
     }
 
 

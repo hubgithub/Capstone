@@ -15,9 +15,9 @@ public class Jiu extends Chess_pieces
     /**
      * Default constructor for objects of class Jiu
      */
-    public Jiu(String side,String type,String filename,Chess_pieces[][] array, int coL, int roW)
+    public Jiu(String side,String type,String filename,Chess_pieces[][] array, int coL, int roW,Point[][] location)
     {
-        super(side,type,filename,array,coL,roW);
+        super(side,type,filename,array,coL,roW,location);
 
     }
 

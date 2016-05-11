@@ -14,9 +14,9 @@ public class Ma extends Chess_pieces
     /**
      * 
      */
-    public Ma(String side,String type,String filename,Chess_pieces[][] array, int coL, int roW)
+    public Ma(String side,String type,String filename,Chess_pieces[][] array, int coL, int roW,Point[][] location)
     {
-        super(side,type,filename,array,coL,roW);
+        super(side,type,filename,array,coL,roW,location);
 
     }
     

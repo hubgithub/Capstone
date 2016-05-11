@@ -13,9 +13,9 @@ public class Shi extends Chess_pieces
     /**
      * Default constructor for objects of class Shi
      */
-    public Shi(String side,String type,String filename,Chess_pieces[][] array, int x, int y)
+    public Shi(String side,String type,String filename,Chess_pieces[][] array, int x, int y,Point[][] location)
     {
-        super(side,type,filename,array,x,y);
+        super(side,type,filename,array,x,y,location);
         
     }
     

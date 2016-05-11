@@ -2,6 +2,7 @@ import java.awt.Point;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.io.File;
+import java.awt.Rectangle;
 import java.awt.Graphics2D;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -26,13 +27,15 @@ public abstract class Chess_pieces
     String filename;
     Chess_pieces[][] array;
     Image pic;
+    Point[][] location;
+    
 
 
 
     /**
      * Default constructor for objects of class Chess_pieces
      */
-    public Chess_pieces(String side,String type,String filename,Chess_pieces[][] array, int coL, int roW)
+    public Chess_pieces(String side,String type,String filename,Chess_pieces[][] array, int coL, int roW,Point[][] location)
     {
         this.side = side;
         this.type = type;
@@ -40,6 +43,7 @@ public abstract class Chess_pieces
         this.array = array;
         this.coL = coL;
         this.roW = roW;
+        this.location = location;
         
         try
         {
@@ -64,10 +68,11 @@ public abstract class Chess_pieces
 
     }
     
+    
         /**
      * draw it self
      */
-    public void draw(Graphics2D g2,Point[][] location)
+    public void draw(Graphics2D g2)
     {
             g2.drawImage(pic,(int)location[roW][coL].getX(),(int)location[roW][coL].getY(), null);
     }
@@ -120,6 +125,25 @@ public abstract class Chess_pieces
     {
         return type;
     }
+    
+    public void setLocation(Point[][] location)
+    {
+        this.location = location;
+    }
+    
+    public boolean isInside(Point point)
+    {
+        Rectangle rect = new Rectangle((int)location[roW][coL].getX(),(int)location[roW][coL].getY(),(int)location[roW][coL].getX()+20,(int)location[roW][coL].getY()+20);
+        
+        if(rect.contains(point.getX(),point.getY()))
+        {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    
     
 
 
