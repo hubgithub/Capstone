@@ -59,6 +59,11 @@ public class Pao extends Chess_pieces
     
     public boolean check_take(int col, int row)
     {
+        if(array[row][col] == null)
+        {
+            return false;
+        }
+        
         if(array[row][col].getSide().equals(side))
         {
             return false;

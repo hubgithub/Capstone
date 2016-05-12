@@ -26,10 +26,7 @@ public class Jiu extends Chess_pieces
      */
     public boolean valid_move(int col, int row)
     {
-        if(array[row][col] != null && array[row][col].getSide().equals(side))
-        {
-            return false;
-        }
+
         
         if(coL != col && row == roW)
         {
@@ -59,6 +56,15 @@ public class Jiu extends Chess_pieces
             return false;
         }
         
+        if(array[row][col] == null)
+        {
+            return true;
+        }
+        
+        if(array[row][col].getSide().equals(side))
+        {
+            return false;
+        }        
         return true;
     }
     

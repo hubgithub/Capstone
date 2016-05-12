@@ -22,10 +22,7 @@ public class Zu extends Chess_pieces
 
     public boolean valid_move(int col, int row)
     {
-        if(array[row][col] != null && array[row][col].getSide().equals(array[roW][coL].getSide()))
-        {
-            return false;
-        }
+
         
         if(Math.abs(col - coL)+Math.abs(row - roW) != 1)
         {
@@ -57,6 +54,15 @@ public class Zu extends Chess_pieces
             
         }
         
+        if(array[row][col] == null)
+        {
+            return true;
+        }
+        
+        if(array[row][col].getSide().equals(array[roW][coL].getSide()))
+        {
+            return false;
+        }        
         return true;
     }
     

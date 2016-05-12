@@ -303,8 +303,8 @@ public class Chess_board extends JPanel
                 }
                 else
                 {
-                    int row = 99;
-                    int col = 99;
+                    int row = 0;
+                    int col = 0;
                     
                     for(int i = 0; i < pieces.length; i++)
                     {

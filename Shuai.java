@@ -21,10 +21,7 @@ public class Shuai extends Chess_pieces
     
     public boolean valid_move(int col, int row)
     {
-        if(array[row][col] != null && array[row][col].getSide().equals(side))
-        {
-            return false;
-        }        
+
         
         if(side.equals("red"))
         {
@@ -55,6 +52,15 @@ public class Shuai extends Chess_pieces
             }            
         }
         
+        if(array[row][col] == null)
+        {
+            return true;
+        }
+        
+        if(array[row][col].getSide().equals(side))
+        {
+            return false;
+        }                
         return true;        
         
     }
