@@ -98,7 +98,7 @@ public abstract class Chess_pieces
      */
     public void move(int col, int row)
     {
-        this.array[col][row] = this.array[roW][coL];
+        this.array[row][col] = this.array[roW][coL];
         this.array[roW][coL] = null;
     }
     
@@ -130,7 +130,7 @@ public abstract class Chess_pieces
     
     public boolean isInside(Point point)
     {
-        Rectangle rect = new Rectangle((int)location[roW][coL].getX(),(int)location[roW][coL].getY(),(int)location[roW][coL].getX()+20,(int)location[roW][coL].getY()+20);
+        Rectangle rect = new Rectangle((int)location[roW][coL].getX(),(int)location[roW][coL].getY(),(int)location[roW][coL].getX()+40,(int)location[roW][coL].getY()+40);
         
         if(rect.contains(point.getX(),point.getY()))
         {

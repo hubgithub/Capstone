@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=side\ type\ filename\ array\ x\ y\ location
 comment0.target=Shuai(java.lang.String,\ java.lang.String,\ java.lang.String,\ Chess_pieces[][],\ int,\ int,\ java.awt.Point[][])
-comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Shuai\r\n
+comment0.text=\n\ Default\ constructor\ for\ objects\ of\ class\ Shuai\n
 comment1.params=col\ row
 comment1.target=boolean\ valid_move(int,\ int)
 comment2.params=col\ row

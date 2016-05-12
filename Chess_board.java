@@ -234,7 +234,7 @@ public class Chess_board extends JPanel
             
             if(black_move)
             {
-                if(time%2 != 0)
+                if(time% 2 != 0)
                 {
                     Point point = new Point(e.getX(),e.getY());
                     
@@ -242,9 +242,11 @@ public class Chess_board extends JPanel
                     {
                         for(int x = 0; x < pieces[0].length;x++)
                         {
-                            if(pieces[i][x]!=null && pieces[i][x].isInside(point))
+                            if(pieces[i][x]!= null && pieces[i][x].isInside(point))
                             {
                                 active_pieces = pieces[i][x];
+                                
+                                
                             }
                         }
                     }
@@ -253,31 +255,38 @@ public class Chess_board extends JPanel
                 }
                 else
                 {
-                    int row = 0;
-                    int col = 0;
                     
                     for(int i = 0; i < pieces.length; i++)
                     {
                         for(int x = 0; x < pieces[0].length;x++)
                         {
-                            if(Math.abs(e.getX()-location[i][x].getX())<= 20 && Math.abs(e.getY()-location[i][x].getY()) <= 20)
+                            
+                            Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
+                            
+                            if(rect.contains(e.getX(),e.getY()) )
                             {
-                                row = i;
-                                col = x;
+                                int row = i;
+                                int col = x;
+                            
+                                if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
+                                {
+                                    active_pieces.move(col,row);
+                        
+                                    black_move = false;
+                                }
+                                else
+                                {
+                                    black_move = true;
+                                }
+                                
+                            }
+                            else
+                            {
+                                black_move = true;
                             }
                         }
                     }
                     
-                    if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
-                    {
-                        active_pieces.move(col,row);
-                        
-                        black_move = false;
-                    }
-                    else
-                    {
-                        black_move = true;
-                    }
                     
                     
                 }
@@ -303,30 +312,36 @@ public class Chess_board extends JPanel
                 }
                 else
                 {
-                    int row = 0;
-                    int col = 0;
                     
                     for(int i = 0; i < pieces.length; i++)
                     {
                         for(int x = 0; x < pieces[0].length;x++)
                         {
-                            if(Math.abs(e.getX()-location[i][x].getX())<= 20 && Math.abs(e.getY()-location[i][x].getY()) <= 20)
+                            
+                            Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
+                            
+                            if(rect.contains(e.getX(),e.getY()) )
                             {
-                                row = i;
-                                col = x;
+                                int row = i;
+                                int col = x;
+                            
+                                if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
+                                {
+                                    active_pieces.move(col,row);
+                        
+                                    black_move = false;
+                                }
+                                else
+                                {
+                                    black_move = true;
+                                }
+                                
+                            }
+                            else
+                            {
+                                black_move = true;
                             }
                         }
-                    }
-                    
-                    if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
-                    {
-                        active_pieces.move(col,row);
-                        
-                        black_move = true;
-                    }
-                    else
-                    {
-                        black_move = false;
                     }
                     
                     

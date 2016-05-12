@@ -59,7 +59,7 @@ public class Zu extends Chess_pieces
             return true;
         }
         
-        if(array[row][col].getSide().equals(array[roW][coL].getSide()))
+        else if(array[row][col].getSide().equals(array[roW][coL].getSide()))
         {
             return false;
         }        
