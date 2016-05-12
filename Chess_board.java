@@ -33,6 +33,7 @@ public class Chess_board extends JPanel
     private Chess_pieces select;
     private boolean black_move;
     private Image pic;
+    private Chess_pieces active_piece;
 
     
 
@@ -226,139 +227,37 @@ public class Chess_board extends JPanel
     class Listener implements MouseListener
     {
         int time = 0;
-        Chess_pieces active_pieces;
         
-        public void mouseClicked(MouseEvent e)
-        {
-            time++;
-            
-            if(black_move)
-            {
-                if(time% 2 != 0)
-                {
-                    Point point = new Point(e.getX(),e.getY());
-                    
-                    for(int i = 0; i < pieces.length; i++)
-                    {
-                        for(int x = 0; x < pieces[0].length;x++)
-                        {
-                            if(pieces[i][x]!= null && pieces[i][x].isInside(point))
-                            {
-                                active_pieces = pieces[i][x];
-                                
-                                
-                            }
-                        }
-                    }
-                    
-                    
-                }
-                else
-                {
-                    
-                    for(int i = 0; i < pieces.length; i++)
-                    {
-                        for(int x = 0; x < pieces[0].length;x++)
-                        {
-                            
-                            Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
-                            
-                            if(rect.contains(e.getX(),e.getY()) )
-                            {
-                                int row = i;
-                                int col = x;
-                            
-                                if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
-                                {
-                                    active_pieces.move(col,row);
-                        
-                                    black_move = false;
-                                }
-                                else
-                                {
-                                    black_move = true;
-                                }
-                                
-                            }
-                            else
-                            {
-                                black_move = true;
-                            }
-                        }
-                    }
-                    
-                    
-                    
-                }
-            }
-            else
-            {
-                if(time%2 != 0)
-                {
-                    Point point = new Point(e.getX(),e.getY());
-                    
-                    for(int i = 0; i < pieces.length; i++)
-                    {
-                        for(int x = 0; x < pieces[0].length;x++)
-                        {
-                            if(pieces[i][x]!=null && pieces[i][x].isInside(point))
-                            {
-                                active_pieces = pieces[i][x];
-                            }
-                        }
-                    }
-                    
-                    
-                }
-                else
-                {
-                    
-                    for(int i = 0; i < pieces.length; i++)
-                    {
-                        for(int x = 0; x < pieces[0].length;x++)
-                        {
-                            
-                            Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
-                            
-                            if(rect.contains(e.getX(),e.getY()) )
-                            {
-                                int row = i;
-                                int col = x;
-                            
-                                if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
-                                {
-                                    active_pieces.move(col,row);
-                        
-                                    black_move = false;
-                                }
-                                else
-                                {
-                                    black_move = true;
-                                }
-                                
-                            }
-                            else
-                            {
-                                black_move = true;
-                            }
-                        }
-                    }
-                    
-                    
-                }                
-                
-                
-            }
-            
-            repaint();
-        }
+        
+        public void mouseClicked(MouseEvent e){}
         
 
         
         public void mouseExited(MouseEvent e){}
 
         
-        public void mousePressed(MouseEvent e) {}
+        public void mousePressed(MouseEvent e)
+        {
+            Point point = new Point(e.getX(),e.getY());
+            for(int i = 0; i < pieces.length; i++)
+            {
+                for(int x = 0; x < pieces[0].length;x++)
+                {
+                    if(pieces[i][x] != null)
+                    {
+                        if(pieces[i][x].isInside(point))
+                        {
+                            active_piece = pieces[i][x];
+                        }
+                    }
+                    
+                    
+                }
+                
+                
+            }
+        
+        }
         
         public void mouseReleased(MouseEvent e){}
         
@@ -366,6 +265,163 @@ public class Chess_board extends JPanel
         
         public void moseExited(MouseEvent e){}
         
-    }    
+    }
     
+    class MotionListener implements MouseMotionListener
+    {
+        public void mouseDragged(MouseEvent e)
+        {
+            
+            for(int i = 0; i < pieces.length; i++)
+            {
+                for(int x = 0; x < pieces[0].length;x++)
+                {
+                    Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
+                    
+                    if(rect.contains(e.getX(),e.getY()))
+                    {
+
+                    }
+                    
+                
+                
+                }
+            }
+
+            
+        }  
+        
+        public void mouseMoved(MouseEvent e)
+        {
+       
+        }            
+    
+    }
 }
+
+
+
+//         public void mouseClicked(MouseEvent e)
+//         {
+//             time++;
+//             
+//             if(black_move)
+//             {
+//                 if(time% 2 != 0)
+//                 {
+//                     Point point = new Point(e.getX(),e.getY());
+//                     
+//                     for(int i = 0; i < pieces.length; i++)
+//                     {
+//                         for(int x = 0; x < pieces[0].length;x++)
+//                         {
+//                             if(pieces[i][x]!= null && pieces[i][x].isInside(point))
+//                             {
+//                                 active_pieces = pieces[i][x];
+//                                 
+//                                 
+//                             }
+//                         }
+//                     }
+//                     
+//                     
+//                 }
+//                 else
+//                 {
+//                     
+//                     for(int i = 0; i < pieces.length; i++)
+//                     {
+//                         for(int x = 0; x < pieces[0].length;x++)
+//                         {
+//                             
+//                             Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
+//                             
+//                             if(rect.contains(e.getX(),e.getY()) )
+//                             {
+//                                 int row = i;
+//                                 int col = x;
+//                             
+//                                 if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
+//                                 {
+//                                     active_pieces.move(col,row);
+//                         
+//                                     black_move = false;
+//                                 }
+//                                 else
+//                                 {
+//                                     black_move = true;
+//                                 }
+//                                 
+//                             }
+//                             else
+//                             {
+//                                 black_move = true;
+//                             }
+//                         }
+//                     }
+//                     
+//                     
+//                     
+//                 }
+//             }
+//             else
+//             {
+//                 if(time%2 != 0)
+//                 {
+//                     Point point = new Point(e.getX(),e.getY());
+//                     
+//                     for(int i = 0; i < pieces.length; i++)
+//                     {
+//                         for(int x = 0; x < pieces[0].length;x++)
+//                         {
+//                             if(pieces[i][x]!=null && pieces[i][x].isInside(point))
+//                             {
+//                                 active_pieces = pieces[i][x];
+//                             }
+//                         }
+//                     }
+//                     
+//                     
+//                 }
+//                 else
+//                 {
+//                     
+//                     for(int i = 0; i < pieces.length; i++)
+//                     {
+//                         for(int x = 0; x < pieces[0].length;x++)
+//                         {
+//                             
+//                             Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
+//                             
+//                             if(rect.contains(e.getX(),e.getY()) )
+//                             {
+//                                 int row = i;
+//                                 int col = x;
+//                             
+//                                 if(active_pieces.valid_move(col,row) || active_pieces.check_take(col,row))
+//                                 {
+//                                     active_pieces.move(col,row);
+//                         
+//                                     black_move = false;
+//                                 }
+//                                 else
+//                                 {
+//                                     black_move = true;
+//                                 }
+//                                 
+//                             }
+//                             else
+//                             {
+//                                 black_move = true;
+//                             }
+//                         }
+//                     }
+//                     
+//                     
+//                 }                
+//                 
+//                 
+//             }
+//             
+//             repaint();
+//         }
