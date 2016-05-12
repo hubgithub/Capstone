@@ -131,6 +131,8 @@ public class Chess_board extends JPanel
        
        Listener listener = new Listener();
        this.addMouseListener(listener);
+       MotionListener motionListener = new MotionListener();
+       this.addMouseMotionListener(motionListener);       
        
     }
     
@@ -256,6 +258,8 @@ public class Chess_board extends JPanel
                 
                 
             }
+            
+            repaint();
         
         }
         
@@ -280,6 +284,10 @@ public class Chess_board extends JPanel
                     
                     if(rect.contains(e.getX(),e.getY()))
                     {
+                        if(active_piece.valid_move(x,i) || active_piece.check_take(x,i))
+                        {
+                            active_piece.move(x,i);
+                        }
 
                     }
                     
@@ -287,6 +295,8 @@ public class Chess_board extends JPanel
                 
                 }
             }
+            
+            repaint();
 
             
         }  

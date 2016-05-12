@@ -1,4 +1,5 @@
 import java.awt.Point;
+import java.lang.NullPointerException;
 
 /**
  * Write a description of class Zu here.
@@ -20,7 +21,7 @@ public class Zu extends Chess_pieces
     }
 
 
-    public boolean valid_move(int col, int row)
+    public boolean valid_move(int col, int row) throws NullPointerException
     {
 
         
@@ -54,15 +55,22 @@ public class Zu extends Chess_pieces
             
         }
         
-        if(array[row][col] == null)
-        {
-            return true;
-        }
+        try{
         
-        else if(array[row][col].getSide().equals(array[roW][coL].getSide()))
-        {
-            return false;
-        }        
+            if(array[row][col] == null)
+            {
+                return true;
+            }
+        
+            else if(array[row][col].getSide().equals(array[roW][coL].getSide()))
+            {
+                return false;
+
+            
+            }
+            
+        }
+        catch(NullPointerException e){}
         return true;
     }
     
