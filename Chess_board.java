@@ -318,6 +318,7 @@ public class Chess_board extends JPanel
 //             if(black_move)
 //             {
 //                 if(time% 2 != 0)
+
 //                 {
 //                     Point point = new Point(e.getX(),e.getY());
 //                     

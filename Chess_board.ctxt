@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Chess_board()
-comment0.text=\n\ set\ the\ initial\ postion\ of\ all\ pieces\n
+comment0.text=\r\n\ set\ the\ initial\ postion\ of\ all\ pieces\r\n
 comment1.params=
 comment1.target=boolean\ gameEnds()
-comment1.text=\n\ Check\ if\ game\ ends\n
+comment1.text=\r\n\ Check\ if\ game\ ends\r\n
 comment2.params=
 comment2.target=java.lang.String\ whoWon()
 comment3.params=g
