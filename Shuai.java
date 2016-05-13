@@ -1,5 +1,5 @@
 import java.awt.Point;
-
+import java.lang.NullPointerException;
 /**
  * Write a description of class Shuai here.
  * 
@@ -75,17 +75,33 @@ public class Shuai extends Chess_pieces
             return false;
         }
         
-        if(col == coL)
-        {
-            String[] str = new String[9];
-            for(int i = 0; i < str.length;i++)
-            {
-                if(array[i][col] != null)
-                {
-                    str[i] = array[i][col].getType()
-                }
-            }
-        }
+//         if(col == coL)
+//         {
+//             String[] str = new String[9];
+//             for(int i = 0; i < str.length;i++)
+//             {
+//                 if(array[i][col] != null)
+//                 {
+//                     str[i] = array[i+1][col].getType();
+//                 }
+//             }
+//             try
+//             {
+//                 int index = 0;
+//                 for(int i = 0; i < str.length;i++)
+//                 {
+//                     if(str[i] != null)
+//                     {
+//                         index = i;
+//                         break;
+//                     }
+//                 }
+//                 if(str[index].equals("Shuai"))
+//                 {
+//                     return true;
+//                 }
+//             }catch(NullPointerException sfadhk){}
+//         }
         return valid_move(col,row);
     }
 

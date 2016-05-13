@@ -35,13 +35,27 @@ public class Pao extends Chess_pieces
         if(coL != col && row == roW)
         {
             
-            for(int i = coL+1; i < col; i++)
+            if(col > coL)
             {
-                if(array[row][i] != null)
+            
+                for(int i = coL+1; i < col; i++)
                 {
-                    return false;
+                    if(array[row][i] != null)
+                    {
+                        return false;
+                    }
                 }
                 
+            }
+            else
+            {
+                for(int i = coL - 1; i > col; i--)
+                {
+                    if(array[row][i] != null)
+                    {
+                        return false;
+                    }
+                }                
             }
         }
         else if(roW != row && coL == col)
