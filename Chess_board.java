@@ -230,7 +230,6 @@ public class Chess_board extends JPanel
     class Listener implements MouseListener
     {
         int time = 0;
-        Graphics g;
         
         
 
@@ -278,23 +277,6 @@ public class Chess_board extends JPanel
             }
             
             
-            Graphics2D g2 = (Graphics2D)g;
-            
-            try
-            {
-            
-                for(int i = 0; i < pieces.length;i++)
-                {
-                    for(int x = 0; x < pieces[0].length;x++)
-                    {
-                        if(pieces[i][x] != null)
-                        {
-                            pieces[i][x].draw(g2);
-                        }
-                    }
-                }
-            }catch(NullPointerException ob){}
-            repaint();
         }
             
             

@@ -100,6 +100,8 @@ public abstract class Chess_pieces
     {
         this.array[row][col] = this.array[roW][coL];
         this.array[roW][coL] = null;
+        roW = row;
+        coL = col;
     }
     
     public int getCol()
