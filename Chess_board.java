@@ -3,6 +3,7 @@ import javax.swing.JPanel;
 import java.awt.geom.Point2D;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.lang.NullPointerException;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
@@ -229,96 +230,78 @@ public class Chess_board extends JPanel
     class Listener implements MouseListener
     {
         int time = 0;
+        Graphics g;
         
-        
-        public void mouseClicked(MouseEvent e){}
         
 
-        
-        public void mouseExited(MouseEvent e){}
-
-        
-        public void mousePressed(MouseEvent e)
+        public void mouseClicked(MouseEvent e)
         {
-            Point point = new Point(e.getX(),e.getY());
-            for(int i = 0; i < pieces.length; i++)
+            
+            if(time%2 == 0)
             {
-                for(int x = 0; x < pieces[0].length;x++)
+                Point point = new Point(e.getX(),e.getY());
+                for(int i = 0; i < pieces.length; i++)
                 {
-                    if(pieces[i][x] != null)
+                    for(int x = 0; x < pieces[0].length;x++)
                     {
-                        if(pieces[i][x].isInside(point))
+                        if(pieces[i][x]!= null && pieces[i][x].isInside(point))
                         {
                             active_piece = pieces[i][x];
+                            time++;
+                            
+                            
                         }
                     }
-                    
-                    
-                }
-                
+                }                
                 
             }
-            
-            repaint();
-        
-        }
-        
-        public void mouseReleased(MouseEvent e){}
-        
-        public void mouseEntered(MouseEvent e){}
-        
-        public void moseExited(MouseEvent e){}
-        
-    }
-    
-    class MotionListener implements MouseMotionListener
-    {
-        public void mouseDragged(MouseEvent e)
-        {
-            
-            for(int i = 0; i < pieces.length; i++)
+            else
             {
-                for(int x = 0; x < pieces[0].length;x++)
+                for(int i = 0; i < pieces.length; i++)
                 {
-                    Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
-                    
-                    if(rect.contains(e.getX(),e.getY()))
+                    for(int x = 0; x < pieces[0].length;x++)
                     {
-                        if(active_piece.valid_move(x,i) || active_piece.check_take(x,i))
+                        Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
+                        
+                        if(rect.contains(e.getX(),e.getY()))
                         {
-                            active_piece.move(x,i);
+                            if(active_piece.valid_move(x,i) || active_piece.check_take(x,i))
+                            {
+                                active_piece.move(x,i);
+                                repaint();
+                                time++;
+                            }
                         }
-
+                        
                     }
-                    
-                
-                
                 }
             }
             
-            repaint();
-
             
-        }  
-        
-        public void mouseMoved(MouseEvent e)
-        {
-       
-        }            
-    
-    }
-}
-
-
-
-//         public void mouseClicked(MouseEvent e)
-//         {
-//             time++;
-//             
+            Graphics2D g2 = (Graphics2D)g;
+            
+            try
+            {
+            
+                for(int i = 0; i < pieces.length;i++)
+                {
+                    for(int x = 0; x < pieces[0].length;x++)
+                    {
+                        if(pieces[i][x] != null)
+                        {
+                            pieces[i][x].draw(g2);
+                        }
+                    }
+                }
+            }catch(NullPointerException ob){}
+            repaint();
+        }
+            
+            
 //             if(black_move)
 //             {
 //                 if(time% 2 != 0)
-
+// 
 //                 {
 //                     Point point = new Point(e.getX(),e.getY());
 //                     
@@ -433,6 +416,83 @@ public class Chess_board extends JPanel
 //                 
 //                 
 //             }
+            
+
+        
+
+        
+        public void mouseExited(MouseEvent e){}
+
+        
+        public void mousePressed(MouseEvent e)
+        {
+//             Point point = new Point(e.getX(),e.getY());
+//             for(int i = 0; i < pieces.length; i++)
+//             {
+//                 for(int x = 0; x < pieces[0].length;x++)
+//                 {
+//                     if(pieces[i][x] != null)
+//                     {
+//                         if(pieces[i][x].isInside(point))
+//                         {
+//                             active_piece = pieces[i][x];
+//                         }
+//                     }
+//                     
+//                     
+//                 }
+//                 
+//                 
+//             }
 //             
 //             repaint();
-//         }
+        
+        }
+        
+        public void mouseReleased(MouseEvent e){}
+        
+        public void mouseEntered(MouseEvent e){}
+        
+        public void moseExited(MouseEvent e){}
+        
+    }
+    
+    class MotionListener implements MouseMotionListener
+    {
+        public void mouseDragged(MouseEvent e)
+        {
+            
+//             for(int i = 0; i < pieces.length; i++)
+//             {
+//                 for(int x = 0; x < pieces[0].length;x++)
+//                 {
+//                     Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
+//                     
+//                     if(rect.contains(e.getX(),e.getY()))
+//                     {
+//                         if(active_piece.valid_move(x,i) || active_piece.check_take(x,i))
+//                         {
+//                             active_piece.move(x,i);
+//                         }
+// 
+//                     }
+//                     
+//                 
+//                 
+//                 }
+//             }
+//             
+//             repaint();
+
+            
+        }  
+        
+        public void mouseMoved(MouseEvent e)
+        {
+       
+        }            
+    
+    }
+}
+
+
