@@ -73,7 +73,19 @@ public class Shuai extends Chess_pieces
         if(col == coL && row == roW)
         {
             return false;
-        }        
+        }
+        
+        if(col == coL)
+        {
+            String[] str = new String[9];
+            for(int i = 0; i < str.length;i++)
+            {
+                if(array[i][col] != null)
+                {
+                    str[i] = array[i][col].getType()
+                }
+            }
+        }
         return valid_move(col,row);
     }
 
