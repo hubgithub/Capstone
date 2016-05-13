@@ -37,7 +37,7 @@ public class Zu extends Chess_pieces
                 {
                     return false;
                 }
-                else if((roW < border) && (coL != col))
+                else if((roW < 5) && (coL != col))
                 {
                     return false;
                 }
@@ -45,12 +45,12 @@ public class Zu extends Chess_pieces
             }
             else
             {
-                if((coL - col) > 0)
+                if((roW - row) < 0)
                 {
                     return false;
                     
                 }
-                else if((roW > border) && (coL != col))
+                else if((roW > 4) && (coL != col))
                 {
                     return false;
                 }

@@ -35,7 +35,7 @@ public class Pao extends Chess_pieces
         if(coL != col && row == roW)
         {
             
-            for(int i = coL+1; i <= col; i++)
+            for(int i = coL+1; i < col; i++)
             {
                 if(array[row][i] != null)
                 {
@@ -46,7 +46,7 @@ public class Pao extends Chess_pieces
         }
         else if(roW != row && coL == col)
         {
-            for(int i = roW + 1; i <= row; i++)
+            for(int i = roW + 1; i < row; i++)
             {
                 if(array[i][col] != null)
                 {
@@ -65,14 +65,18 @@ public class Pao extends Chess_pieces
     
     public boolean check_take(int col, int row)
     {
+        
+        if(array[row][col] == null)
+        {
+            return false;
+        }        
+        
         if(col == coL && row == roW)
         {
             return false;
         }        
-        if(array[row][col] == null)
-        {
-            return false;
-        }
+        
+
         int check = 0;
         
         if(array[row][col].getSide().equals(side))
@@ -83,9 +87,9 @@ public class Pao extends Chess_pieces
         {
             if(coL != col && row == roW)
             {
-                if(coL > col)
+                if(coL < col)
                 {
-                    for(int i = coL - 1; i < col; i--)
+                    for(int i = coL + 1; i < col; i++)
                     {
                         if(array[row][i] != null)
                         {
@@ -95,7 +99,7 @@ public class Pao extends Chess_pieces
                 }
                 else
                 {
-                    for(int i = coL +1; i > col; i++)
+                    for(int i = coL - 1; i > col; i--)
                     {
                         if(array[row][i] != null)
                         {
