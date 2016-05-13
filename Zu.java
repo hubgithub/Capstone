@@ -23,17 +23,20 @@ public class Zu extends Chess_pieces
 
     public boolean valid_move(int col, int row) throws NullPointerException
     {
-
+        if(valid_move(col,row))
+        {
+            return true;
+        }
         
-        if(Math.abs(col - coL)+Math.abs(row - roW) != 1)
+        if(Math.abs(col - coL)+Math.abs(row - roW) == 1)
         {
             if(side.equals("red"))
             {
-                if((roW - row) < 0)
+                if((row - roW) < 0)
                 {
                     return false;
                 }
-                else if((roW > border) && (coL != col))
+                else if((roW < border) && (coL != col))
                 {
                     return false;
                 }
@@ -41,36 +44,45 @@ public class Zu extends Chess_pieces
             }
             else
             {
-                if((roW - row) > 0)
+                if((coL - col) > 0)
                 {
                     return false;
                     
                 }
-                else if((roW < border) && (coL != col))
+                else if((roW > border) && (coL != col))
                 {
                     return false;
                 }
                 
             }
             
+            try{
+            
+                if(array[row][col] == null)
+                {
+                    return true;
+                }
+            
+                else if(array[row][col].getSide().equals(array[roW][coL].getSide()))
+                {
+                    return false;
+    
+                
+                }
+                
+            }
+            catch(NullPointerException e){}
+            
+            
+        }
+        else
+        {
+            return false;
         }
         
-        try{
         
-            if(array[row][col] == null)
-            {
-                return true;
-            }
         
-            else if(array[row][col].getSide().equals(array[roW][coL].getSide()))
-            {
-                return false;
 
-            
-            }
-            
-        }
-        catch(NullPointerException e){}
         return true;
     }
     
@@ -78,7 +90,7 @@ public class Zu extends Chess_pieces
     {
         if(valid_move(col,row))
         {
-            return true;
+            return false;
         }
         
         return false;

@@ -132,7 +132,7 @@ public abstract class Chess_pieces
     
     public boolean isInside(Point point)
     {
-        Rectangle rect = new Rectangle((int)location[roW][coL].getX(),(int)location[roW][coL].getY(),(int)location[roW][coL].getX()+40,(int)location[roW][coL].getY()+40);
+        Rectangle rect = new Rectangle((int)location[roW][coL].getX(),(int)location[roW][coL].getY(),40,40);
         
         if(rect.contains(point.getX(),point.getY()))
         {

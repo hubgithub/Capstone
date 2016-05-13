@@ -235,7 +235,7 @@ public class Chess_board extends JPanel
 
         public void mouseClicked(MouseEvent e)
         {
-            
+            int jd = 5;
             if(time%2 == 0)
             {
                 Point point = new Point(e.getX(),e.getY());
@@ -245,6 +245,7 @@ public class Chess_board extends JPanel
                     {
                         if(pieces[i][x]!= null && pieces[i][x].isInside(point))
                         {
+                            System.out.println("Clicked Row " + i + " COL " + x);
                             active_piece = pieces[i][x];
                             time++;
                             
@@ -260,13 +261,14 @@ public class Chess_board extends JPanel
                 {
                     for(int x = 0; x < pieces[0].length;x++)
                     {
-                        Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),(int)location[i][x].getX()+40,(int)location[i][x].getY()+40);
+                        Rectangle rect = new Rectangle((int)location[i][x].getX(),(int)location[i][x].getY(),40,40);
                         
                         if(rect.contains(e.getX(),e.getY()))
                         {
                             if(active_piece.valid_move(x,i) || active_piece.check_take(x,i))
                             {
                                 active_piece.move(x,i);
+                                System.out.println("Moved To ROW " + i + " COL " + x);
                                 repaint();
                                 time++;
                             }

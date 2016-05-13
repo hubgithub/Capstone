@@ -21,6 +21,10 @@ public class Pao extends Chess_pieces
     
     public boolean valid_move(int col, int row)
     {
+        if(col == coL && row == roW)
+        {
+            return true;
+        }        
         if(array[row][col] != null)
         {
             return false;
@@ -59,11 +63,15 @@ public class Pao extends Chess_pieces
     
     public boolean check_take(int col, int row)
     {
+        if(col == coL && row == roW)
+        {
+            return false;
+        }        
         if(array[row][col] == null)
         {
             return false;
         }
-        
+        int check = 0;
         if(array[row][col].getSide().equals(side))
         {
             return false;
@@ -72,37 +80,37 @@ public class Pao extends Chess_pieces
         {
             if(coL != col && row == roW)
             {
-                int check = 0;
+                
                 for(int i = roW + 1; i <= row; i++)
                 {
                     if(array[i][col] != null)
                     {
                         check++;
                     }
+                }
+                if(check != 1)
+                {
+                    return false;
+                }
+
+                
+            }
+            else if(roW != row && coL == col)
+            {
+                for(int i = roW + 1; i < row; i++)
+                {
+                    
+                    if(array[i][col] != null)
+                    {
+                        check++;
+                    }
+                                       
                 }
                 
                 if(check != 1)
                 {
                     return false;
-                }
-                
-            }
-            else if(roW != row && coL == col)
-            {
-                for(int i = roW + 1; i <= row; i++)
-                {
-                    int check = 0;
-                    if(array[i][col] != null)
-                    {
-                        check++;
-                    }
-                    
-                    if(check != 1)
-                    {
-                        return false;
-                    }
-                    
-                }
+                }                
             }
             else
             {

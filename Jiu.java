@@ -26,7 +26,10 @@ public class Jiu extends Chess_pieces
      */
     public boolean valid_move(int col, int row)
     {
-
+        if(col == coL && row == roW)
+        {
+            return true;
+        }
         
         if(coL != col && row == roW)
         {
@@ -70,6 +73,12 @@ public class Jiu extends Chess_pieces
     
     public boolean check_take(int col, int row)
     {
+        if(col == coL && row == roW)
+        {
+            return false;
+        }        
+        
+        
         return valid_move(col,row);
 
         

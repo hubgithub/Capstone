@@ -22,7 +22,10 @@ public class Ma extends Chess_pieces
     
     public boolean valid_move(int col, int row)
     {
-
+        if(col == coL && row == roW)
+        {
+            return true;
+        }
         
         if(Math.abs(coL - col) == 2 && Math.abs(roW-row) == 1)
         {
@@ -78,6 +81,10 @@ public class Ma extends Chess_pieces
     
     public boolean check_take(int col, int row)
     {
+        if(col == coL && row == roW)
+        {
+            return false;
+        }        
         return valid_move(col,row);
     }
 

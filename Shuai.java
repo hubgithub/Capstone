@@ -21,11 +21,14 @@ public class Shuai extends Chess_pieces
     
     public boolean valid_move(int col, int row)
     {
-
+        if(col == coL && row == roW)
+        {
+            return true;
+        }
         
         if(side.equals("red"))
         {
-            if( (col >=3 ||col <= 5) && (row <= 2))
+            if( (col >=3 &&col <= 5) && (row <= 2))
             {
                 if(Math.abs(col-coL) + Math.abs(row-roW) != 1)
                 {
@@ -39,7 +42,7 @@ public class Shuai extends Chess_pieces
         }
         else
         {
-            if( (col >=3 ||col <= 5) && (row >=7 ))
+            if( (col >=3 && col <= 5) && (row >=7 ))
             {
                 if(Math.abs(col-coL)+ Math.abs(row-roW) != 1)
                 {
@@ -67,6 +70,10 @@ public class Shuai extends Chess_pieces
     
     public boolean check_take(int col, int row)
     {
+        if(col == coL && row == roW)
+        {
+            return false;
+        }        
         return valid_move(col,row);
     }
 
