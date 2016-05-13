@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 
+
 import java.awt.image.BufferedImage;
 /**
  * Super Class of all Chess pieces
@@ -102,7 +103,9 @@ public abstract class Chess_pieces
         this.array[roW][coL] = null;
         roW = row;
         coL = col;
-    }
+        
+            
+   }
     
     public int getCol()
     {

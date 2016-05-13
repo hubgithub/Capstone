@@ -1,5 +1,6 @@
 import java.awt.Point;
 import java.lang.NullPointerException;
+import java.lang.StackOverflowError;
 
 /**
  * Write a description of class Zu here.
@@ -23,7 +24,7 @@ public class Zu extends Chess_pieces
 
     public boolean valid_move(int col, int row) throws NullPointerException
     {
-        if(valid_move(col,row))
+        if(col == coL && row == roW)
         {
             return true;
         }

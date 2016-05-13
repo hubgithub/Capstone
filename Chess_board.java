@@ -267,7 +267,13 @@ public class Chess_board extends JPanel
                         {
                             if(active_piece.valid_move(x,i) || active_piece.check_take(x,i))
                             {
-                                active_piece.move(x,i);
+                                if(active_piece.getCol() == x && active_piece.getRow() == i)
+                                {
+                                }
+                                else
+                                {
+                                    active_piece.move(x,i);
+                                }
                                 System.out.println("Moved To ROW " + i + " COL " + x);
                                 repaint();
                                 time++;

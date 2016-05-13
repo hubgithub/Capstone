@@ -21,10 +21,12 @@ public class Pao extends Chess_pieces
     
     public boolean valid_move(int col, int row)
     {
+        
         if(col == coL && row == roW)
         {
             return true;
-        }        
+        }    
+        
         if(array[row][col] != null)
         {
             return false;
@@ -72,6 +74,7 @@ public class Pao extends Chess_pieces
             return false;
         }
         int check = 0;
+        
         if(array[row][col].getSide().equals(side))
         {
             return false;
@@ -80,14 +83,27 @@ public class Pao extends Chess_pieces
         {
             if(coL != col && row == roW)
             {
-                
-                for(int i = roW + 1; i <= row; i++)
+                if(coL > col)
                 {
-                    if(array[i][col] != null)
+                    for(int i = coL - 1; i < col; i--)
                     {
-                        check++;
+                        if(array[row][i] != null)
+                        {
+                            check++;
+                        }
                     }
                 }
+                else
+                {
+                    for(int i = coL +1; i > col; i++)
+                    {
+                        if(array[row][i] != null)
+                        {
+                            check++;
+                        }
+                    }
+                }
+                
                 if(check != 1)
                 {
                     return false;
@@ -97,34 +113,47 @@ public class Pao extends Chess_pieces
             }
             else if(roW != row && coL == col)
             {
-                for(int i = roW + 1; i < row; i++)
+                if(roW < row)
                 {
                     
-                    if(array[i][col] != null)
+                    for(int i = roW + 1; i < row; i++)
                     {
-                        check++;
+                    
+                        if(array[i][col] != null)
+                        {
+                            check++;
+                        }
                     }
                                        
                 }
-                
-                if(check != 1)
+                else
                 {
-                    return false;
-                }                
+                    for(int i = roW -1; i > row; i--)
+                    {
+                        if(array[i][col] != null)
+                        {
+                            check++;
+                        }
+                    }
+                }
             }
-            else
+                
+            if(check != 1)
             {
                 return false;
-            }
+            }                
+        }
+        
+        
+        return true;
+       
+    
             
             
             
         }
         
         
-        return true;
+
     }
 
-
-
-}

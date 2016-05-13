@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.params=side\ type\ filename\ array\ coL\ roW\ location
 comment0.target=Jiu(java.lang.String,\ java.lang.String,\ java.lang.String,\ Chess_pieces[][],\ int,\ int,\ java.awt.Point[][])
-comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Jiu\r\n
+comment0.text=\n\ Default\ constructor\ for\ objects\ of\ class\ Jiu\n
 comment1.params=col\ row
 comment1.target=boolean\ valid_move(int,\ int)
-comment1.text=\r\n\ valid_move\ return\ true\ if\ valid,\ false\ otherwise\r\n
+comment1.text=\n\ valid_move\ return\ true\ if\ valid,\ false\ otherwise\n
 comment2.params=col\ row
 comment2.target=boolean\ check_take(int,\ int)
 numComments=3

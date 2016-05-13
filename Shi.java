@@ -27,9 +27,20 @@ public class Shi extends Chess_pieces
             return true;
         }
         
+        if(Math.abs(col - coL) == 0 || Math.abs(row - roW) == 0)
+        {
+            return false;
+        }
+        
+        
+        if(Math.abs(col - coL) != 1 && Math.abs(row - roW) != 1)
+        {
+            return false;
+        }
+        
         if(side.equals("red"))
         {
-            if( (col >=3 ||col <= 5) && (row <= 2))
+            if( (col >=3 && col <= 5) && (row <= 2))
             {
                 if(Math.abs(col-coL)!=1 && Math.abs(row-roW) != 1)
                 {
@@ -43,7 +54,7 @@ public class Shi extends Chess_pieces
         }
         else
         {
-            if( (col >=3 ||col <= 5) && (row >=7 ))
+            if( (col >=3 &&col <= 5) && (row >=7 ))
             {
                 if(Math.abs(col-coL)!=1 && Math.abs(row-roW) != 1)
                 {
