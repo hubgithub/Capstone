@@ -34,7 +34,7 @@ public class Jiu extends Chess_pieces
         if(coL != col && row == roW)
         {
             
-            for(int i = coL+1; i <= col; i++)
+            for(int i = coL+1; i < col; i++)
             {
                 if(array[row][i] != null)
                 {
