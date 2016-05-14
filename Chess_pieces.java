@@ -19,16 +19,16 @@ import java.awt.image.BufferedImage;
 public abstract class Chess_pieces
 {
     
-    String side;
-    int border;
+    public String side;
+    public int border;
     
-    int coL;
-    int roW;
-    String type;
-    String filename;
-    Chess_pieces[][] array;
-    Image pic;
-    Point[][] location;
+    public int coL;
+    public int roW;
+    public String type;
+    public String filename;
+    public Chess_pieces[][] array;
+    public Image pic;
+    public Point[][] location;
     
 
 
